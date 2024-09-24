@@ -18,6 +18,9 @@ class Settings(BaseSettings):
 
     API_WEATHER_KEY: str
 
+    # Период добавления данных в БД (в секундах)
+    DB_PERIOD: int
+
     @property
     def DATABASE_URL(self) -> str:
         """URL адрес базы данных postgresql"""
