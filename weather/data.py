@@ -1,3 +1,4 @@
+import asyncio
 import aiohttp
 from typing import TYPE_CHECKING
 
@@ -35,3 +36,11 @@ async def save_weather_data(data: WeatherInfo) -> None:
         )
         session.add(record)
         await session.commit()
+
+async def periodic_save_weather_data() -> None:
+    """Периодическое сохранение записей о погоде в БД."""
+    while True:
+        weather_data = await fetch_weather_data()
+        await save_weather_data(weather_data.fact)
+
+        await asyncio.sleep(settings.DB_PERIOD)
