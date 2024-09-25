@@ -1,8 +1,9 @@
 from sqlalchemy.orm import Mapped
 from core.database import Base
+from weather.mixins import TimestampMixin
 
 
-class WeatherData(Base):
+class WeatherData(TimestampMixin, Base):
     """Модель данных о погоде."""
 
     temperature: Mapped[float]
