@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Mapped
+
 from core.database import Base
 from weather.mixins import TimestampMixin
 

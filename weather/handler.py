@@ -1,18 +1,18 @@
 import asyncio
 import os
 import string
-import aiohttp
-import openpyxl
-from openpyxl.styles import Alignment, Font
 from typing import TYPE_CHECKING
 
 import aioconsole as aio
+import aiohttp
+import openpyxl
+from openpyxl.styles import Alignment, Font
 from sqlalchemy import select
 
+from config import get_settings
 from core.database import async_session
 from weather.models import WeatherData
 from weather.schema import FactWeatherInfo, WeatherInfo
-from config import get_settings
 
 settings = get_settings()
 
